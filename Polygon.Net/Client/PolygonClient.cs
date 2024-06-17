@@ -34,7 +34,7 @@ namespace Polygon.Net
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new PolygonHttpException(response.ReasonPhrase);
+                throw new PolygonHttpException(response.ReasonPhrase, (int)response.StatusCode);
             }
 
             return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
